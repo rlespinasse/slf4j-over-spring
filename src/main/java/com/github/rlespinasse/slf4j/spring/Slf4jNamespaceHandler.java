@@ -9,5 +9,6 @@ public class Slf4jNamespaceHandler extends NamespaceHandlerSupport {
     @Override
     public void init() {
         registerBeanDefinitionParser("autowired-logger", new AutowiredLoggerBeanDefinitionParser());
+        registerBeanDefinitionParser("autowired-loc-logger", new AutowiredLoggerBeanDefinitionParser());
     }
 }

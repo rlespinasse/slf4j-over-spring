@@ -6,4 +6,5 @@
             attributeFormDefault="unqualified">
 
     <xsd:element name="autowired-logger"/>
+    <xsd:element name="autowired-loc-logger"/>
 </xsd:schema>
