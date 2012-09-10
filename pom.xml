@@ -35,8 +35,8 @@
     </licenses>
 
     <scm>
-        <url>https://github.com/rlespinasse/slf4j-over-spring</url>
-        <connection>scm:git:https://github.com/rlespinasse/slf4j-over-spring.git</connection>
+        <url>git@github.com:rlespinasse/slf4j-over-spring.git</url>
+        <connection>scm:git:git@github.com:rlespinasse/slf4j-over-spring.git</connection>
         <developerConnection>scm:git:git@github.com:rlespinasse/slf4j-over-spring.git</developerConnection>
     </scm>
 
