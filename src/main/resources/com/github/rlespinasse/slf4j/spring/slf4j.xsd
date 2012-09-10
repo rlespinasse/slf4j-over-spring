@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://rlespinasse.github.com/schema/slf4j"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://rlespinasse.github.com/schema/slf4j"
+            elementFormDefault="qualified"
+            attributeFormDefault="unqualified">
+
+    <xsd:element name="autowired-logger"/>
+</xsd:schema>
