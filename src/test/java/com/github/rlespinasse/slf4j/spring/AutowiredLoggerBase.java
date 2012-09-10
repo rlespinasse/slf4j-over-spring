@@ -8,9 +8,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import static org.fest.assertions.Assertions.assertThat;
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"classpath*:spring/slf4j-autowired-logger-by-custom-tag.xml"})
-public class AutowiredLoggerBeanDefinitionParserITCase {
+public abstract class AutowiredLoggerBase {
 
     @AutowiredLogger
     Logger logger;
