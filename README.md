@@ -1,24 +1,16 @@
 # SLF4J spring enhancement
-## How to use it?
-### 1. declare a Maven dependency
-```xml
-<dependency>
-    <groupId>com.github.rlespinasse</groupId>
-    <artifactId>slf4j-over-spring</artifactId>
-    <version>1.0</version>
-</dependency>
-```
-### 2. use the annotation `@AutowiredLogger` on a SLF4J Logger in a `@Component` bean
+## Features
+### @AutowiredLogger
+add a SLF4J Logger on a @Component class
+
 ```java
 @Component
 public class BeanWithLogger {
     @AutowiredLogger
-    org.slf4j.Logger logger;
+    Logger logger;
 }
 ```
 
-### 3. setup autowired logger system
-#### by his `Spring XML configuration` implementation
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
@@ -32,14 +24,30 @@ public class BeanWithLogger {
 </beans>
 ```
 
-#### or by his `BeanPostProcessor` implementation
+### @AutowiredLocLogger
+add a SLF4J LocLogger on a @Component class
+
+```java
+@Component
+public class BeanWithLocLogger {
+    @AutowiredLocLogger
+    LocLogger logger;
+}
+```
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans 
-       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+       xmlns:slf4j="http://rlespinasse.github.com/schema/slf4j"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://rlespinasse.github.com/schema/slf4j http://rlespinasse.github.com/schema/slf4j/slf4j.xsd">
 
-   <bean class="com.github.rlespinasse.slf4j.spring.AutowiredLoggerPostProcessor"/>
+   <!-- simple usage -->
+   <slf4j:autowired-loc-logger />
+   
+   <!-- custom usage to define a specific locale (instead of default Locale.ENGLISH)  -->
+   <slf4j:autowired-loc-logger locale="en"/>
 </beans>
 ```
