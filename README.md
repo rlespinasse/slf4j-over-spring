@@ -1,15 +1,14 @@
-# SLF4J spring enhancement 
-
+# SLF4J spring enhancement
 ## How to use it?
-
-1. download the jar from `downloads section` on github (use `Sonatype OSS Maven Repository` in progress)
-2. install it in your maven repository
-3. use the annotation `@AutowiredLogger` on a SLF4J Logger in a `@Component` bean
-4. setup autowired logger system
-  * by his `BeanPostProcessor` implementation
-  * or by his `Spring XML configuration` implementation
-
-### `@AutowiredLogger` usage
+### 1. declare a Maven dependency
+```xml
+<dependency>
+    <groupId>com.github.rlespinasse</groupId>
+    <artifactId>slf4j-over-spring</artifactId>
+    <version>1.0</version>
+</dependency>
+```
+### 2. use the annotation `@AutowiredLogger` on a SLF4J Logger in a `@Component` bean
 ```java
 @Component
 public class BeanWithLogger {
@@ -18,7 +17,8 @@ public class BeanWithLogger {
 }
 ```
 
-### `Spring XML configuration` implementation
+### 3. setup autowired logger system
+#### by his `Spring XML configuration` implementation
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
@@ -32,7 +32,7 @@ public class BeanWithLogger {
 </beans>
 ```
 
-### `BeanPostProcessor` implementation
+#### or by his `BeanPostProcessor` implementation
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
