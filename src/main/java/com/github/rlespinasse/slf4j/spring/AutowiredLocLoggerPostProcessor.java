@@ -2,8 +2,6 @@ package com.github.rlespinasse.slf4j.spring;
 
 import ch.qos.cal10n.IMessageConveyor;
 import ch.qos.cal10n.MessageConveyor;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.slf4j.cal10n.LocLogger;
 import org.slf4j.cal10n.LocLoggerFactory;
 import org.springframework.beans.BeansException;
@@ -20,6 +18,27 @@ import static org.springframework.util.ReflectionUtils.FieldCallback;
  * @see AutowiredLocLogger
  */
 public class AutowiredLocLoggerPostProcessor implements BeanPostProcessor {
+
+    Locale locale = Locale.ENGLISH;
+
+    public void setLocale(String locale) {
+        assert locale != null;
+        String[] splitLocale = locale.split("_");
+        String language = "";
+        String country = "";
+        String variant = "";
+        if(splitLocale.length > 0) {
+            language = splitLocale[0];
+        }
+        if(splitLocale.length > 1) {
+            country = splitLocale[1];
+        }
+        if(splitLocale.length > 2) {
+            variant = splitLocale[2];
+        }
+        this.locale = new Locale(language, country, variant);
+    }
+
     /**
      * {@inheritDoc}
      */
@@ -37,7 +56,7 @@ public class AutowiredLocLoggerPostProcessor implements BeanPostProcessor {
                     IllegalAccessException {
                 ReflectionUtils.makeAccessible(field);
                 if (field.getAnnotation(AutowiredLocLogger.class) != null) {
-                    IMessageConveyor messageConveyor = new MessageConveyor(Locale.ENGLISH);
+                    IMessageConveyor messageConveyor = new MessageConveyor(locale);
                     LocLoggerFactory locLoggerFactory = new LocLoggerFactory(messageConveyor);
                     LocLogger locLogger = locLoggerFactory.getLocLogger(bean.getClass());
                     field.set(bean, locLogger);
