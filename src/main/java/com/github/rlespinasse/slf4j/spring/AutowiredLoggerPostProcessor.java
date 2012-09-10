@@ -11,34 +11,21 @@ import java.lang.reflect.Field;
 import static org.springframework.util.ReflectionUtils.FieldCallback;
 
 /**
- * BeanPostProcessor for @AutowiredLogger.<br/>
- *
- * To use this BeanPostProcessor
-<pre>{@code
-<?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
-
-   <bean class="com.github.rlespinasse.slf4j.spring.AutowiredLoggerPostProcessor"/>
-</beans>
-}</pre>
+ * BeanPostProcessor for @AutowiredLogger.
  * @see AutowiredLogger
  */
 public class AutowiredLoggerPostProcessor implements BeanPostProcessor {
     /**
      * {@inheritDoc}
      */
-    public Object postProcessAfterInitialization(Object bean, String beanName) throws
-            BeansException {
+    public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
         return bean;
     }
 
     /**
      * {@inheritDoc}
      */
-    public Object postProcessBeforeInitialization(final Object bean, String beanName)
-            throws BeansException {
+    public Object postProcessBeforeInitialization(final Object bean, String beanName) throws BeansException {
         ReflectionUtils.doWithFields(bean.getClass(), new FieldCallback() {
             @SuppressWarnings("unchecked")
             public void doWith(Field field) throws IllegalArgumentException,

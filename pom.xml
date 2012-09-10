@@ -17,9 +17,7 @@
 
     <description>
         Enhancement of SLF4J libraries in Spring
-
-        - with Bean configuration
-        - or Custom XML Configuration
+        with Custom XML Configuration
     </description>
 
     <url>http://github.com/rlespinasse/slf4j-over-spring</url>
