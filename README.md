@@ -2,7 +2,7 @@
 
 ## How to use it?
 
-1. download the jar from `downloads section` on github
+1. download the jar from `downloads section` on github (use `Sonatype OSS Maven Repository` in progress)
 2. install it in your maven repository
 3. use the annotation `@AutowiredLogger` on a SLF4J Logger in a `@Component` bean
 4. setup autowired logger system
@@ -18,18 +18,6 @@ public class BeanWithLogger {
 }
 ```
 
-### `BeanPostProcessor` implementation
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans 
-       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
-
-   <bean class="com.github.rlespinasse.slf4j.spring.AutowiredLoggerPostProcessor"/>
-</beans>
-```
-
 ### `Spring XML configuration` implementation
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -41,5 +29,17 @@ public class BeanWithLogger {
        http://rlespinasse.github.com/schema/slf4j http://rlespinasse.github.com/schema/slf4j/slf4j.xsd">
 
    <slf4j:autowired-logger />
+</beans>
+```
+
+### `BeanPostProcessor` implementation
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+   <bean class="com.github.rlespinasse.slf4j.spring.AutowiredLoggerPostProcessor"/>
 </beans>
 ```
