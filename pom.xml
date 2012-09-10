@@ -6,8 +6,44 @@
 
     <groupId>com.github.rlespinasse</groupId>
     <artifactId>slf4j-over-spring</artifactId>
-	<version>1.0</version>
+	<version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
+
+    <name>Spring Enhancement for SLF4J</name>
+
+    <description>
+        Enhancement of SLF4J libraries in Spring
+
+        - with Bean configuration
+        - or Custom XML Configuration
+    </description>
+
+    <url>http://github.com/rlespinasse/slf4j-over-spring</url>
+
+    <licenses>
+        <license>
+            <name>DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE</name>
+            <url>http://rlespinasse.github.com/WTFPL/</url>
+        </license>
+    </licenses>
+
+    <scm>
+        <url>https://github.com/rlespinasse/slf4j-over-spring</url>
+        <connection>scm:git:https://github.com/rlespinasse/slf4j-over-spring.git</connection>
+        <developerConnection>scm:git:git@github.com:rlespinasse/slf4j-over-spring.git</developerConnection>
+    </scm>
+
+    <developers>
+        <developer>
+            <id>rlespinasse</id>
+            <name>Romain Lespinasse</name>
+            <email>romain.lespinasse@gmail.com</email>
+            <roles>
+                <role>project leader</role>
+            </roles>
+            <timezone>Europe/Paris</timezone>
+        </developer>
+    </developers>
 
     <dependencyManagement>
         <dependencies>
