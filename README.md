@@ -1,4 +1,12 @@
 # SLF4J spring enhancement
+## Maven Dependencies
+```xml
+<dependency>
+    <groupId>com.github.rlespinasse</groupId>
+    <artifactId>slf4j-over-spring</artifactId>
+    <version>1.1-SNAPSHOT</version>
+</dependency>
+```
 ## Features
 ### @AutowiredLogger
 add a SLF4J Logger on a @Component class
