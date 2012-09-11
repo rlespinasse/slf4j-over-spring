@@ -33,7 +33,7 @@ public class BeanWithLogger {
 ```
 
 ### @AutowiredLocLogger
-add a SLF4J LocLogger on a @Component class
+add a SLF4J LocLogger on a @Component class (require `org.slf4j:slf4j-ext:1.7.0` dependency)
 
 ```java
 @Component
