@@ -10,5 +10,16 @@ import static org.fest.assertions.Assertions.assertThat;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath*:spring-it/slf4j-autowired-logger.xml"})
-public class AutowiredLoggerITCase extends AutowiredLoggerBase {
+public class AutowiredLoggerITCase {
+
+    @AutowiredLogger
+    Logger logger;
+
+    @Test public void should_be_injected() {
+        assertThat(logger).isNotNull();
+    }
+
+    @Test public void should_be_the_logger_of_this_class() {
+        assertThat(logger.getName()).isEqualTo(this.getClass().getCanonicalName());
+    }
 }
