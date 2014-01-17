@@ -43,6 +43,3 @@ public class BeanWithLogger {
    <bean class="com.github.rlespinasse.slf4j.spring.AutowiredLoggerPostProcessor"/>
 </beans>
 ```
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/rlespinasse/slf4j-over-spring/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-
