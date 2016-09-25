@@ -1,4 +1,7 @@
 # SLF4J spring enhancement
+
+[![No Maintenance Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/)
+
 ## How to use it?
 ### 1. declare a Maven dependency
 ```xml
